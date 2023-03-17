@@ -8,7 +8,7 @@ import Todos from "~/components/Todos";
 import {BsPencil} from 'react-icons/bs'
 import {RiTodoLine} from 'react-icons/ri'
 const Home: NextPage = () => {
-  // const hello = api.example.hello.useQuery({ text: "from tRPC" });
+
 
 
 const {data:sessionData} = useSession()
@@ -38,7 +38,7 @@ const {data:sessionData} = useSession()
              { sessionData? <Todos/> : <><RiTodoLine className=" text-green-500 mb-4 text-7xl "/><p></p></> }
 
              {
-               sessionData?<><h1>Logged in as {sessionData.user.name}</h1> <img className=" h-10 rounded-full" src={`${sessionData.user.image}`} /> </> :<></>
+               sessionData?<><h1>Logged in as {sessionData.user.name}</h1> <img className=" h-10 rounded-full" src={`${sessionData.user.image}`} alt="logo" /> </> :<></>
              }
 
             <button className="  bg-purple-700 mt-2  px-4 py-1  rounded-md" 
@@ -56,26 +56,4 @@ const {data:sessionData} = useSession()
 
 export default Home;
 
-// const AuthShowcase: React.FC = () => {
-//   const { data: sessionData } = useSession();
 
-//   const { data: secretMessage } = api.example.getSecretMessage.useQuery(
-//     undefined, // no input
-//     { enabled: sessionData?.user !== undefined },
-//   );
-
-//   return (
-//     <div className="flex flex-col items-center justify-center gap-4">
-//       <p className="text-center text-2xl text-white">
-//         {sessionData && <span>Logged in as {sessionData.user?.name}</span>}
-//         {secretMessage && <span> - {secretMessage}</span>}
-//       </p>
-//       <button
-//         className="rounded-full bg-white/10 px-10 py-3 font-semibold text-white no-underline transition hover:bg-white/20"
-//         onClick={sessionData ? () => void signOut() : () => void signIn()}
-//       >
-//         {sessionData ? "Sign out" : "Sign in"}
-//       </button>
-//     </div>
-//   );
-// };
