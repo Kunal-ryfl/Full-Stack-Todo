@@ -20,6 +20,12 @@ export const TodoRouter = createTRPCRouter({
  getTodo : protectedProcedure.query(async({ctx})=>{
 
  const todos = ctx.prisma.todo.findMany({
+  orderBy: [
+    {
+      createdAt: 'asc',
+    },
+    
+  ],
   where:{
     userId:ctx.session.user.id,
   }

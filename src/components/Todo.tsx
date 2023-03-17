@@ -95,7 +95,7 @@ const Todo = (todo:{done:boolean,  id:string,title:string,body:string}) => {
 		},
 		// Always refetch after error or success:
 		onSettled: async () => {
-			toast.success("Todo deleted")
+			
 			await trpc.example.getTodo.invalidate()
 		},
 
@@ -118,12 +118,15 @@ const Todo = (todo:{done:boolean,  id:string,title:string,body:string}) => {
 
 	<input
 	onChange={(e) => {
+		
 		doneMutation( { id, done: e.target.checked }   );
 	}}
 	type="checkbox"  className=' h-5 w-5   bg-transparent '  checked={todo.done}/>
+	
         <button onClick={() => {
+			toast.success("Todo deleted")
 					deleteMutation(todo.id)
-				}} className=' text-red-700 text-2xl px-4 py-1 my-2 rounded-xl'><CiCircleRemove/></button> 
+				}} className=' text-red-700 text-2xl px-2 py-1 my-2 rounded-xl'><CiCircleRemove/></button> 
       </div>
    
     </div>

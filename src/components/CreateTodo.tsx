@@ -16,6 +16,9 @@ const CreateTodo = () => {
 		onSettled: async () => {
 			console.log('SETTLED')
 			await trpc.example.getTodo.invalidate()
+            toast.remove()
+            toast.success("Todo created")
+            
 		},
 	});
 
@@ -26,6 +29,10 @@ const CreateTodo = () => {
         <form 
         onSubmit={(e) => {
             e.preventDefault()
+            
+            const loadingToast = toast.loading("creating todo ...");
+            
+
             const result = todoInput.safeParse(newTodo)
 
             if (!result.success) {
@@ -34,7 +41,7 @@ const CreateTodo = () => {
             }
 
             mutate(newTodo)
-            toast.success("created todo")
+            
         }}
 
         className=" grid grid-cols-10  gap-2 "
