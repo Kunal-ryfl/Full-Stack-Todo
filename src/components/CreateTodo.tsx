@@ -1,4 +1,4 @@
-import { Example, Todo } from '@prisma/client'
+
 import React,{useState} from 'react'
 import { todoInput } from '~/types'
 import { api } from '~/utils/api'

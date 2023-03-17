@@ -2,11 +2,10 @@ import { z } from "zod";
 
 import {
   createTRPCRouter,
-  publicProcedure,
+
   protectedProcedure,
 } from "~/server/api/trpc";
 import { todoInput } from "~/types";
-import { prisma } from "~/server/db";
 
 export const TodoRouter = createTRPCRouter({
  

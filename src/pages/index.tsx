@@ -1,6 +1,6 @@
 import { type NextPage } from "next";
 import Head from "next/head";
-
+import Image from "next/image";
 import { signIn, signOut, useSession } from "next-auth/react";
 
 
@@ -38,7 +38,7 @@ const {data:sessionData} = useSession()
              { sessionData? <Todos/> : <><RiTodoLine className=" text-green-500 mb-4 text-7xl "/><p></p></> }
 
              {
-               sessionData?<><h1>Logged in as {sessionData.user.name}</h1> <img className=" h-10 rounded-full" src={`${sessionData.user.image}`} alt="logo" /> </> :<></>
+               sessionData?<><h1>Logged in as {sessionData.user.name}</h1> </> :<></>
              }
 
             <button className="  bg-purple-700 mt-2  px-4 py-1  rounded-md" 

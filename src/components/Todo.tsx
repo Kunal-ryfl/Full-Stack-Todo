@@ -1,7 +1,7 @@
 import React from 'react'
 import { api } from "../utils/api"
 import toast from "react-hot-toast";
-import {motion} from 'framer-motion'
+
 
 const Todo = (todo:{done:boolean,  id:string,title:string,body:string}) => {
   const trpc = api.useContext();
