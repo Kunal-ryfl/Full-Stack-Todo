@@ -18,7 +18,7 @@ const Todos = () => {
 {
         
         data?.map((todo)=>(
-           <Todo key={todo.id}  id={todo.id} title={todo.id} body={todo.body} />
+           <Todo key={todo.id} done={todo.done}  id={todo.id} title={todo.id} body={todo.body} />
         ))
 
            }

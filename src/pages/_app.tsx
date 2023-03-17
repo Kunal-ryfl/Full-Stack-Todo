@@ -5,7 +5,7 @@ import { Toaster } from "react-hot-toast"
 import { api } from "~/utils/api";
 import {Inter} from "next/font/google"
 import "~/styles/globals.css";
-
+import { AnimatePresence } from 'framer-motion'
 
 const inter = Inter({
 
@@ -19,7 +19,9 @@ const MyApp: AppType<{ session: Session | null }> = ({
   pageProps: { session, ...pageProps },
 }) => {
   return (
+      <AnimatePresence mode="wait" initial={false}>
     <SessionProvider session={session}>
+
       <div className={inter.className}>
 
       <Component  {...pageProps} />
@@ -27,6 +29,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
       <Toaster />
       </div>
     </SessionProvider>
+      </AnimatePresence>
   );
 };
 

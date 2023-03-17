@@ -49,7 +49,7 @@ const CreateTodo = () => {
 
         <div className=' flex justify-end p-4  col-span-3'>
 
-        <button  className=' bg-green-900 px-4 py-1 rounded-xl'>create</button>
+        <button  className=' bg-green-900 px-4 py-1 text-xl rounded-xl'>create</button>
         </div>
         </form>
         

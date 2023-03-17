@@ -61,4 +61,25 @@ delete: protectedProcedure.input(z.string()).mutation(({ ctx, input }) => {
 }),
 
 
+
+toggle: protectedProcedure
+    .input(
+      z.object({
+        id: z.string(),
+        done: z.boolean(),
+      })
+    )
+    .mutation(({ ctx, input }) => {
+      const { id, done } = input;
+      return ctx.prisma.todo.update({
+        where: {
+          id,
+        },
+        data: {
+          done,
+        },
+      });
+    }),
+
+
 });
