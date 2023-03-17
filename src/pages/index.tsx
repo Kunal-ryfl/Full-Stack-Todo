@@ -1,12 +1,12 @@
 import { type NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import { signIn, signOut, useSession } from "next-auth/react";
 
 
 import Todos from "~/components/Todos";
 import {BsPencil} from 'react-icons/bs'
 import {RiTodoLine} from 'react-icons/ri'
+import {HiOutlinePaperAirplane} from 'react-icons/hi'
 const Home: NextPage = () => {
 
 
@@ -26,16 +26,16 @@ const {data:sessionData} = useSession()
       </Head>
 
 
-      <main className="flex min-h-screen flex-col text-white justify-center  items-center  bg-gradient-to-b from-[#2e026d] to-[#15162c]">
-           <h1 className=" text-5xl ">supa-todo  </h1>
-           <div className=" flex  items-center justify-center" >
+      <main   className={ !sessionData?"flex min-h-screen flex-col justify-center items-center text-white   bg-black " :"flex min-h-screen flex-col text-white   bg-black "}        >
+           <h1 className=" text-5xl md:text-8xl my-6 text-center ">supa-todo  </h1>
+           <div className=" flex   items-center justify-center" >
            <h1 className="  font-light my-2 mx-2">Be Productive  </h1>
            <BsPencil/> 
            </div>
-        <div className="  container flex flex-col  items-center  px-4 py-16 ">
+        <div className="  flex flex-col  items-center  px-2 py-10 ">
 
 
-             { sessionData? <Todos/> : <><RiTodoLine className=" text-green-500 mb-4 text-7xl "/><p></p></> }
+             { sessionData? <Todos/> : <><HiOutlinePaperAirplane className="  text-purple-900 mb-4 text-9xl "/><p></p></> }
 
              {
                sessionData?<><h1>Logged in as {sessionData.user.name}</h1> </> :<></>

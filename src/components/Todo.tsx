@@ -1,6 +1,7 @@
 import React from 'react'
 import { api } from "../utils/api"
 import toast from "react-hot-toast";
+import {CiCircleRemove} from 'react-icons/ci'
 
 
 const Todo = (todo:{done:boolean,  id:string,title:string,body:string}) => {
@@ -103,8 +104,8 @@ const Todo = (todo:{done:boolean,  id:string,title:string,body:string}) => {
 
 
   return (
-    <div   className=' grid grid-cols-10  bg-black/20 text-white rounded-xl p-2 my-1  '>
-      <div className=' break-words col-span-7'>
+    <div   className=' grid  grid-cols-10  bg-white/10 text-white rounded-xl px-2 py-2 my-1  '>
+      <div className=' p-2 break-words col-span-7'>
       {
 		!done?
 		<p>{body}</p>:
@@ -119,10 +120,10 @@ const Todo = (todo:{done:boolean,  id:string,title:string,body:string}) => {
 	onChange={(e) => {
 		doneMutation( { id, done: e.target.checked }   );
 	}}
-	type="checkbox"  className=' h-6 w-6 mr-2 '  checked={todo.done}/>
+	type="checkbox"  className=' h-5 w-5   bg-transparent '  checked={todo.done}/>
         <button onClick={() => {
 					deleteMutation(todo.id)
-				}} className='bg-red-900 px-4 py-1 my-2 rounded-xl'>delete</button> 
+				}} className=' text-red-700 text-2xl px-4 py-1 my-2 rounded-xl'><CiCircleRemove/></button> 
       </div>
    
     </div>

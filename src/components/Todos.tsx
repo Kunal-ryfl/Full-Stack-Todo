@@ -6,15 +6,22 @@ import CreateTodo from './CreateTodo';
 const Todos = () => {
     const {data,isLoading,error} = api.example.getTodo.useQuery();
 
-     if(isLoading) return <>loading todos...</>
-     if(error) return <>error occured</>
+     if(isLoading) return <><p>loading todos...</p></>
+     if(error) return <><p>error occured</p></>
 
     return (
-    <div className='  p-2 bg-red-400/20 md:w-[700px] w-[350px] rounded-xl mb-2'>
+    <div className=' grid gap-2 grid-cols-1 w-screen md:w-[750px]   px-2 py-3   rounded-xl mb-2'>
         
-        <h1 className='  font-semibold text-3xl  '>Todos</h1>
+          
+          <div className=' col-span-full '>
+        <h1 className='  font-semibold text-3xl    '>Todolist</h1>
 
-        <CreateTodo/>
+          </div>
+
+        <div>
+
+        < CreateTodo/>
+        </div>
 {
         
         data?.map((todo)=>(

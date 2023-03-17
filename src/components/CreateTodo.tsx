@@ -3,6 +3,8 @@ import React,{useState} from 'react'
 import { todoInput } from '~/types'
 import { api } from '~/utils/api'
 import toast from "react-hot-toast";
+import {BsPlusCircle} from 'react-icons/bs'
+
 
 const CreateTodo = () => {
     const [newTodo, setNewTodo] = useState("")
@@ -35,21 +37,21 @@ const CreateTodo = () => {
             toast.success("created todo")
         }}
 
-        className=" grid grid-cols-10  "
+        className=" grid grid-cols-10  gap-2 "
         >
 
-        <div className='break-words col-span-7' >
+        <div className='break-words col-span-8' >
 
         <input
         onChange={(e) => {
             setNewTodo(e.target.value)
         }}
-        placeholder='Add Todo' className=' p-2 h-full  w-full  outline-none  bg-transparent'/>
+        placeholder='Add Todo ...' className=' p-2 h-full border-2 border-white/20 rounded-xl  w-full  outline-none  bg-transparent'/>
         </div>
 
-        <div className=' flex justify-end p-4  col-span-3'>
+        <div className=' flex  justify-end py-1  col-span-2'>
 
-        <button  className=' bg-green-900 px-4 py-1 text-xl rounded-xl'>create</button>
+        <button  className=' text-green-700 px-2 py-1 text-3xl md:text-5xl rounded-xl'><BsPlusCircle/></button>
         </div>
         </form>
         
