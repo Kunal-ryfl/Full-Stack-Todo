@@ -10,7 +10,7 @@ const Todos = () => {
      if(error) return <><p>error occured</p></>
 
     return (
-    <div className=' grid gap-2  grid-cols-1  md:w-[750px]    py-3   rounded-xl mb-2'>
+    <div className=' grid gap-2  grid-cols-1 w-full  md:w-[750px]    py-3   rounded-xl mb-2'>
         
           
           <div className=' col-span-full '>

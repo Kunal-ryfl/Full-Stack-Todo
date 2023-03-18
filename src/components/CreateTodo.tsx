@@ -30,15 +30,16 @@ const CreateTodo = () => {
         onSubmit={(e) => {
             e.preventDefault()
             
-            const loadingToast = toast.loading("creating todo ...");
             
-
+            
             const result = todoInput.safeParse(newTodo)
-
+            
             if (!result.success) {
                 toast.error(result.error.format()._errors.join('\n'))
                 return
             }
+            
+            const loadingToast = toast.loading("creating todo ...");
 
             mutate(newTodo)
             
