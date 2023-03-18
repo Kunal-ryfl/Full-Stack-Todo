@@ -1,7 +1,7 @@
 import React from 'react'
 import Todos from '~/components/Todos'
-import { signIn, signOut, useSession } from "next-auth/react";
-import {RxAvatar} from 'react-icons/rx'
+import {signOut, useSession } from "next-auth/react";
+
 import {AiOutlinePoweroff} from 'react-icons/ai'
 import Link from 'next/link';
 
