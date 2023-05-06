@@ -10,8 +10,6 @@ const Todo = (todo:{done:boolean,  id:string,title:string,body:string}) => {
   const {id,done,body} = todo;
 
 
-
-
   const { mutate: doneMutation } = api.example.toggle.useMutation({
 	onMutate: async ( {id, done} ) => {
 

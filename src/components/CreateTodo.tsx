@@ -23,7 +23,6 @@ const CreateTodo = () => {
 	});
 
 
-
     return (
     <div className=' bg-black/50 text-white rounded-xl  my-4 '>
         <form 

@@ -1,39 +1,49 @@
-import React from 'react'
-import { api } from '~/utils/api'
-import Todo from './Todo';
-import CreateTodo from './CreateTodo';
+// import { useState, useRef, useEffect } from 'react'
+import { useAutoAnimate } from '@formkit/auto-animate/react'
+
+import React from "react";
+import { api } from "~/utils/api";
+import Todo from "./Todo";
+import CreateTodo from "./CreateTodo";
 
 const Todos = () => {
-    const {data,isLoading,error} = api.example.getTodo.useQuery();
-
-     if(isLoading) return <><p>loading todos...</p></>
-     if(error) return <><p>error occured</p></>
-
+  const { data, isLoading, error } = api.example.getTodo.useQuery();
+  const [listRef] = useAutoAnimate<HTMLDivElement>();
+  if (isLoading)
     return (
-    <div className=' grid gap-2  grid-cols-1 w-full  md:w-[750px]    py-3   rounded-xl mb-2'>
-        
-          
-          <div className=' col-span-full '>
-        <h1 className='  font-semibold text-3xl    '>Todolist</h1>
+      <>
+        <p>loading todos...</p>
+      </>
+    );
+  if (error)
+    return (
+      <>
+        <p>error occured</p>
+      </>
+    );
 
-          </div>
+  return (
+    <div className=" mb-2 grid  w-full grid-cols-1  gap-2    rounded-xl   py-3 md:w-[750px]">
+      <div className=" col-span-full ">
+        <h1 className="  text-3xl font-semibold    ">Todolist</h1>
+      </div>
 
-        <div>
-
-        < CreateTodo/>
+      <div>
+        <CreateTodo />
+      </div>
+      <div ref={listRef} >
+      {data?.map((todo) => (
+        <Todo
+        key={todo.id}
+        done={todo.done}
+        id={todo.id}
+        title={todo.id}
+        body={todo.body}
+        />
+        ))}
         </div>
-{
-        
-        data?.map((todo)=>(
-           <Todo key={todo.id} done={todo.done}  id={todo.id} title={todo.id} body={todo.body} />
-        ))
-
-           }
-
-
-
     </div>
-  )
-}
+  );
+};
 
-export default Todos
+export default Todos;
